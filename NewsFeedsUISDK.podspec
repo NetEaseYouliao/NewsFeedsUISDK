@@ -6,10 +6,12 @@
   s.homepage     = 'https://youliao.163yun.com/'
   s.authors      = { 'aron' => 'sunweirong32@163.com' }
   s.license      = { :type => 'Free', :text => "©2017 youliao.163yun.com" }
-  s.source       = { :http => "http://crash-public-online.nos.netease.com/NewsFeedsUISDK_1.3.5.zip" }
+  s.source       = { :git => "https://github.com/NetEaseYouliao/NewsFeedsUISDK.git", :tag => "1.3.5" }
   s.requires_arc = true
   s.platform     = :ios
-  s.vendored_frameworks ='NewsFeedsUISDK.framework'
+  s.vendored_frameworks ='NewsFeedsUISDK/NewsFeedsUISDK.framework'
+  s.resource     = 'NewsFeedsUISDK/WeiboSDK.bundle'
+
   s.ios.deployment_target = "9.0"
   
   s.frameworks = 'UIKit', 'AVFoundation', 'MediaPlayer', 'CoreMedia'
