@@ -10,10 +10,10 @@
   s.requires_arc = true
   s.platform     = :ios
   s.vendored_frameworks ='NewsFeedsUISDK/NewsFeedsUISDK.framework'
-  s.resource     = 'NewsFeedsUISDK/WeiboSDK.bundle'
+  s.resource     = 'NewsFeedsUISDK/NFUIBundle.bundle'
 
   s.ios.deployment_target = "9.0"
-  
+
   s.frameworks = 'UIKit', 'AVFoundation', 'MediaPlayer', 'CoreMedia'
   s.dependency 'NewsFeedsSDK'
   s.dependency 'SDWebImage'
