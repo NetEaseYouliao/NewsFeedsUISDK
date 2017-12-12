@@ -75,14 +75,14 @@
  *  视频分享按钮点击
  *
  *  @param browserController    当前的NFPicSetGalleryViewController实例
- *  @param shareInfo            分享需要用到的字段集合
- *  @param type                 分享类型，0：微信好友  1：朋友圈
- *  @param extraData            用户的自定义字段
+ *  @param shareInfo        分享需要用到的字段集合
+ *  @param type             分享类型，0：微信好友  1：朋友圈
+ *  @param extraData        用户的自定义字段
  */
-- (void)onPicSetShareClick:(NFPicSetGalleryViewController *)browserController
-                newsDetail:(NSDictionary *)shareInfo
-                      type:(NSInteger)type
-                 extraData:(id)extraData;
+- (void)onShareClick:(NFPicSetGalleryViewController *)browserController
+             newsDetail:(NSDictionary *)shareInfo
+                   type:(NSInteger)type
+              extraData:(id)extraData;
 @end
 
 @interface NFPicSetGalleryViewController : UIViewController

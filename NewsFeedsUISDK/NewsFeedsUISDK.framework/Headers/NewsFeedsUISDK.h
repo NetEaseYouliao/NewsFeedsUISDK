@@ -12,6 +12,8 @@
 #import "NFArticleGalleryViewController.h"
 #import "NFVideoBrowserViewController.h"
 
+//@class NFNewsDetail;
+
 @protocol NewsFeedsUISDKDelegate <NSObject>
 
 /**
@@ -28,7 +30,7 @@
  *  未实现该回调，则分享按钮隐藏
  */
 - (void)onShareClick:(NSDictionary *)shareInfo
-                type:(NSInteger)type;
+                   type:(NSInteger)type;
 
 @end
 
@@ -49,8 +51,7 @@
  *  @method
  *
  *  @abstract
- *  实现一个全局的delegate
- *  现阶段实现了分享的协议，sdk提供分享的数据，客户端自行实现分享行为
+ *  设置NewsFeedsUISDKDelegate的分享点击回调
  */
 + (void)setDelegate:(id<NewsFeedsUISDKDelegate>)delegate;
 
