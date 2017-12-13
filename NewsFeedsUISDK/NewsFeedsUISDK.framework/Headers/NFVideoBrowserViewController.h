@@ -12,7 +12,7 @@
 @class NFVideoBrowserViewController;
 
 @protocol NFVideoBrowserDelegate <NSObject>
-
+@optional
 /**
  *  @method
  *
@@ -49,14 +49,14 @@
  *  视频分享按钮点击
  *
  *  @param browserController    当前的NFVideoBrowserViewController实例
- *  @param shareInfo        分享需要用到的字段集合
- *  @param type             分享类型，0：微信好友  1：朋友圈
- *  @param extraData        用户的自定义字段
+ *  @param shareInfo            分享需要用到的字段集合
+ *  @param type                 分享类型，0：微信好友  1：朋友圈
+ *  @param extraData            用户的自定义字段
  */
-- (void)onShareClick:(NFVideoBrowserViewController *)browserController
-             newsDetail:(NSDictionary *)shareInfo
-                   type:(NSInteger)type
-              extraData:(id)extraData;
+- (void)onVideoShareClick:(NFVideoBrowserViewController *)browserController
+               newsDetail:(NSDictionary *)shareInfo
+                     type:(NSInteger)type
+                extraData:(id)extraData;
 @end
 
 @interface NFVideoBrowserViewController : UIViewController

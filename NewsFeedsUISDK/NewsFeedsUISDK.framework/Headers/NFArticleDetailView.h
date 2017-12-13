@@ -122,6 +122,22 @@
  * @abstract
  * 获取当前新闻详情的detail。 如果页面为加载完成，此项为空。
  */
-@property (nonatomic, strong, readonly) NFNewsDetail *newsDetail;
+@property (nonatomic, strong) NFNewsDetail *newsDetail;
+
+/**
+ *  @method
+ *
+ *  @abstract
+ *  调用trackArticleBrowseEnd接口，新闻详情浏览结束
+ *
+ *  @discussion
+ *  该接口方便用户在使用SDK提供的NFArticleDetailView展示新闻详情时，无需计算progress
+ *  调用该接口会自动计算出progress
+ *
+ *  可以不使用该接口，调用trackBrowseBegin：和trackBrowseEnd：progress：配合使用代替此接口
+ *
+ *  注意：使用该接口无需与trackBrowseBegin配合使用，SDK会在文章加载成功后自动调用
+ */
+- (void)trackArticleBrowseEnd;
 
 @end

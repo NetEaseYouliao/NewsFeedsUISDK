@@ -12,7 +12,13 @@
 #import "NFArticleGalleryViewController.h"
 #import "NFVideoBrowserViewController.h"
 
-//@class NFNewsDetail;
+#import "NFDataFuncOption.h"
+#import "NFFeedsUIOption.h"
+#import "NFFeedsFuncOption.h"
+#import "NFChannelUIOption.h"
+#import "NFChannelFuncOption.h"
+#import "NFArticleUIOption.h"
+#import "NFArticleFuncOption.h"
 
 @protocol NewsFeedsUISDKDelegate <NSObject>
 
@@ -30,11 +36,24 @@
  *  未实现该回调，则分享按钮隐藏
  */
 - (void)onShareClick:(NSDictionary *)shareInfo
-                   type:(NSInteger)type;
+                type:(NSInteger)type;
 
 @end
 
+
 @interface NewsFeedsUISDK : NSObject
+
+/**
+ *  @method
+ *
+ *  @abstract
+ *  配置SDK相关参数，需要在应用启动时候调用
+ *  在AppDelegate中<code>application:didFinishLaunchingWithOptions:</code>中调用
+ *
+ *  @param appKey    应用的唯一标识，在官网申请后获取
+ *  @param appSecret 在官网申请后获取
+ */
++ (void)startWithAppKey:(NSString *)appKey appSecret:(NSString *)appSecret;
 
 /**
  *  @method
@@ -51,9 +70,31 @@
  *  @method
  *
  *  @abstract
- *  设置NewsFeedsUISDKDelegate的分享点击回调
+ *  实现一个全局的delegate
+ *  现阶段实现了分享的协议，sdk提供分享的数据，客户端自行实现分享行为
  */
-+ (void)setDelegate:(id<NewsFeedsUISDKDelegate>)delegate;
++ (void)setDelegate:(id<NewsFeedsUISDKDelegate>)delegate __attribute__((deprecated("Use setGlobleConfig: with NFNewsFeedsSDKDelegateKey.")));
+
+
+/**
+ *  @method
+ *
+ *  @abstract
+ *  设置SDK全局配置，配置项包括如下：
+ *  @param configBlock
+ *                   NFDataFuncOptionKey,    配置NewsFeedsSDK, 可配置项请查看NFDataFuncOption;
+ *
+ *                   NFChannelFuncOptionKey, 频道功能配置, 可配置项请查看NFChannelFuncOption;
+ *                   NFChannelUIOptionKey,   频道样式配置， 可配置项请查看NFChannelUIOption;
+ *                   NFFeedsFuncOptionKey,   新闻列表功能配置, 可配置项请查看NFFeedsFuncOption;
+ *                   NFFeedsUIOptionKey,     新闻列表样式配置， 可配置项请查看NFFeedsUIOption;
+ *                   NFArticleFuncOptionKey, 文章功能配置, 可配置项请查看NFArticleFuncOption;
+ *                   NFArticleUIOptionKey,   文章样式配置， 可配置项请查看NFArticleUIOption;
+ *                   NFContainerClassKey,    不支持, 只有在页面单独配置时才生效;
+ 
+ *                   NFNewsFeedsSDKDelegateKey, 提供NewsFeedsUISDKDelegate, 代替方法setDelegate:;
+ */
++ (void)configWith:(void (^)(NSMutableDictionary *configuration))configBlock;
 
 /**
  *  @method
@@ -71,7 +112,29 @@
  */
 + (NFeedsView *)createFeedsView:(UINavigationController *)navController
                        delegate:(id<NFeedsViewDelegate>)delegate
-                      extraData:(id)extraData;
+                      extraData:(id)extraData
+__attribute__((deprecated("Use createFeedsView:delegate:config:extraData: instead.")));
+
+/**
+ *  @method
+ *
+ *  @abstract
+ *  创建NFeedsView实例
+ *
+ *  @param navController    页面跳转需要的UINavigationController实例
+ *  @param delegate         NFeedsViewDelegate回调
+ *  @param extraData        用户可以传入自定义字段，该字段会在回调中返回给用户
+ *  @param configBlock           提供配置的选项
+ *
+ *
+ *  @discussion
+ *  若用户未实现回调，则SDK会自动跳转新闻详情页面，需传入navController变量
+ *  若用户实现回调，则跳转到用户回调，无需传navController参数
+ */
++ (NFeedsView *)createFeedsView:(UINavigationController *)navController
+                       delegate:(id<NFeedsViewDelegate>)delegate
+                      extraData:(id)extraData
+                     configWith:(void (^)(NSMutableDictionary *configuration))configBlock;
 
 /**
  *  @method
@@ -85,7 +148,24 @@
  */
 + (NFArticleDetailView *)createArticleDetailView:(NFNewsInfo *)newsInfo
                                         delegate:(id<NFArticleDetailViewDelegate>)delegate
-                                       extraData:(id)extraData;
+                                       extraData:(id)extraData
+__attribute__((deprecated("Use createArticleDetailView:delegate:config:extraData: instead.")));
+
+/**
+ *  @method
+ *
+ *  @abstract
+ *  创建NFArticleDetailView实例
+ *
+ *  @param newsInfo    待加载新闻详情的newsInfo
+ *  @param delegate    NFArticleDetailViewDelegate回调
+ *  @param extraData        用户可以传入自定义字段，该字段会在回调中返回给用户
+ *  @param configBlock  提供配置的选项
+ */
++ (NFArticleDetailView *)createArticleDetailView:(NFNewsInfo *)newsInfo
+                                        delegate:(id<NFArticleDetailViewDelegate>)delegate
+                                       extraData:(id)extraData
+                                      configWith:(void (^)(NSMutableDictionary *configuration))configBlock;
 
 /**
  *  @method
@@ -132,3 +212,18 @@
                                                          extraData:(id)extraData;
 
 @end
+
+extern NSString *const NFDataFuncOptionKey;
+
+extern NSString *const NFChannelFuncOptionKey;
+extern NSString *const NFChannelUIOptionKey;
+
+extern NSString *const NFFeedsFuncOptionKey;
+extern NSString *const NFFeedsUIOptionKey;
+
+extern NSString *const NFArticleFuncOptionKey;
+extern NSString *const NFArticleUIOptionKey;
+
+extern NSString *const NFContainerClassKey;
+
+extern NSString *const NFNewsFeedsSDKDelegateKey;
