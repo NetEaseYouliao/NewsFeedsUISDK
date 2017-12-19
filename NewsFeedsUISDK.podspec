@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.homepage     = 'https://youliao.163yun.com/'
   s.authors      = { 'aron' => 'sunweirong32@163.com' }
   s.license      = { :type => 'Copyright', :text => '©2017 youliao.163yun.com' }
-  s.source       = { :http => "https://github.com/NetEaseYouliao/NewsFeedsUISDK/blob/master/NewsFeedsUISDK/NewsFeedsUISDK-#{s.version}.zip" }
+  s.source       = { :http => "https://github.com/NetEaseYouliao/NewsFeedsUISDK/raw/master/NewsFeedsUISDK/NewsFeedsUISDK-#{s.version}.zip" }
   s.requires_arc = true
   s.platform     = :ios
   s.vendored_frameworks ='NewsFeedsUISDK.framework'
