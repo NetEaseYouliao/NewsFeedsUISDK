@@ -1,0 +1,19 @@
+# More documentation about how to customize your build
+# can be found here:
+# https://docs.fastlane.tools
+fastlane_version "2.68.0"
+
+# This value helps us track success metrics for Fastfiles
+# we automatically generate. Feel free to remove this line
+# once you get things running smoothly!
+# generated_fastfile_id "d8d0491b-a310-4b8c-a32f-819b93ad3b52"
+
+default_platform :ios
+
+# Fastfile actions accept additional configuration, but
+# don't worry, fastlane will prompt you for required
+# info which you can add here later
+
+lane :push_to_pod do
+  pod_push(path: "NewsFeedsUISDK.podspec", repo: "youliao", sources: ["https://github.com/NetEaseYouliao/Specs.git", "https://github.com/CocoaPods/Specs.git"], allow_warnings: true, use_libraries: true)
+end
