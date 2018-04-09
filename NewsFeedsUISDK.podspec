@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.platform     = :ios
   s.vendored_frameworks ='NewsFeedsUISDK.framework'
-  s.resource     = '../NFUIBundle.bundle'
+  s.resource     = 'NFUIBundle.bundle'
 
   s.ios.deployment_target = "9.0"
 
