@@ -14,13 +14,14 @@ Pod::Spec.new do |s|
   s.vendored_frameworks ='NewsFeedsUISDK/NewsFeedsUISDK.framework'
   s.resource     = 'NewsFeedsUISDK/NewsFeedsUISDK.framework/Versions/A/Resources/NFUIBundle.bundle'
 
-  s.ios.deployment_target = "9.0"
+  s.ios.deployment_target = "8.0"
 
-  s.frameworks = 'UIKit', 'AVFoundation', 'MediaPlayer', 'CoreMedia'
+  s.frameworks = 'UIKit', 'AVFoundation', 'MediaPlayer', 'CoreMedia', 'CoreFoundation'
   s.dependency 'NewsFeedsSDK'
   s.dependency 'SDWebImage'
   s.dependency 'SDWebImage/WebP'
   s.dependency 'SDWebImage/GIF'
   s.dependency 'UITableView+FDTemplateLayoutCell'
   s.dependency 'Masonry'
+  s.dependency 'NFUtilityFoundation'
 end
