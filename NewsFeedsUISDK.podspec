@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'NewsFeedsUISDK'
-  s.version      = '1.8.0'
+  s.version      = '1.9.0'
   s.summary      = "网易有料iOS UI SDK"
   s.description  = <<-DESC
                    网易有料iOS UI SDK，提供快速集成功能
@@ -16,6 +16,7 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = "8.0"
 
+  s.static_framework = true
   s.frameworks = 'UIKit', 'AVFoundation', 'MediaPlayer', 'CoreMedia', 'CoreFoundation'
   s.dependency 'NewsFeedsSDK'
   s.dependency 'SDWebImage'
