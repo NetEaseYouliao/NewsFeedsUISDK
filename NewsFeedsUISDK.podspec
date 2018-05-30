@@ -24,5 +24,5 @@ Pod::Spec.new do |s|
   s.dependency 'SDWebImage/GIF'
   s.dependency 'UITableView+FDTemplateLayoutCell'
   s.dependency 'Masonry'
-  s.dependency 'NFUtilityFoundation'
+  s.dependency 'NFUtilityFoundation', '0.0.6'
 end

@@ -15,5 +15,5 @@ default_platform :ios
 # info which you can add here later
 
 lane :push_to_pod do
-  pod_push(path: "NewsFeedsUISDK.podspec", repo: "neteaseyouliao", sources: ["https://github.com/NetEaseYouliao/Specs.git", "https://github.com/CocoaPods/Specs.git"], allow_warnings: true, use_libraries: true)
+  pod_push(path: "NewsFeedsUISDK.podspec", repo: "neteaseyouliao", sources: ["https://github.com/NetEaseYouliao/Specs.git", "https://github.com/CocoaPods/Specs.git"], allow_warnings: true, use_libraries: true, verbose: true)
 end
