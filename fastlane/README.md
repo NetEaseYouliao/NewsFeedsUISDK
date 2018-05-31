@@ -15,11 +15,6 @@ Install _fastlane_ using
 or alternatively using `brew cask install fastlane`
 
 # Available Actions
-### package
-```
-fastlane package
-```
-
 ### push_to_pod
 ```
 fastlane push_to_pod
