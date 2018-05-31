@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'NewsFeedsUISDK'
-  s.version      = '1.9.1'
+  s.version      = '1.9.2'
   s.summary      = "网易有料iOS UI SDK"
   s.description  = <<-DESC
                    网易有料iOS UI SDK，提供快速集成功能
@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.platform     = :ios
   s.vendored_frameworks ='NewsFeedsUISDK/NewsFeedsUISDK.framework'
-  s.resource     = 'NewsFeedsUISDK/NewsFeedsUISDK.framework/Versions/A/Resources/NFUIBundle.bundle'
+  s.resource     = 'NewsFeedsUISDK/NFUIBundle.bundle'
 
   s.ios.deployment_target = "8.0"
 
@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
   s.weak_frameworks = 'UserNotifications', 'CoreFoundation'
 
   s.libraries = 'sqlite3', 'z', 'xml2', 'c++'
-  
+
   s.dependency 'NewsFeedsSDK'
   s.dependency 'SDWebImage'
   s.dependency 'SDWebImage/WebP'
